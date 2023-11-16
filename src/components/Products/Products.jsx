@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import ConfirmationModal from '../ConfirmacionModal.jsx';
 import axios from "axios";
 import { DataContext } from "../Context/DataContext.jsx";
 
@@ -48,7 +47,7 @@ const Products = ({ selectedCategory }) => {
 
   const productsPerPage = 9;
   const pagesVisited = pageNumber * productsPerPage;
-  const filteredData = selectedCategory === 'all' 
+  const filteredData = selectedCategory === 'todos' 
     ? data
     : data.filter((product) => product.category.name === selectedCategory);
   const displayedCards = filteredData.slice(pagesVisited, pagesVisited + productsPerPage);
@@ -104,9 +103,9 @@ const Products = ({ selectedCategory }) => {
               ) : null}
               <Link
                 to={`/details/${card._id}`}
-                className="bg-sky-800 hover:bg-yellow-600 text-white font-bold h-8 w-20 rounded-2xl mt-2 flex items-center justify-center"
+                className="bg-sky-800 hover:bg-yellow-600 text-white font-bold h-8 w-20 p-4 rounded-2xl mt-2 flex items-center justify-center"
               >
-                Details
+                Detalles
               </Link>
             </div>
             <div className='flex items-center text-lg font-semibold'>

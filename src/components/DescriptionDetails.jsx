@@ -14,7 +14,7 @@ const DescriptionDetails = ({ showComments, toggleComments, product }) => {
   }
 
   return (
-    <section className='w-1/2 px-4 pt-14'>
+    <section className='w-2/4 pl-16 pt-14  text-lg '>
       <span>Product code: {product._id}</span>
       <p className='font-extrabold'>{product.name}</p>
       <br />
@@ -23,7 +23,7 @@ const DescriptionDetails = ({ showComments, toggleComments, product }) => {
          {product.description}    
         </p>
 
-      <div className='flex flex-col gap-2 mt-5 justify-items-center'>
+      <div className='flex flex-col gap-2 justify-items-center'>
         <p className='flex items-center text-base font-semibold'>Customer reviews
           <img className='w-8' src="/image/starGold.png" alt="star_gold" />
           <img className='w-8' src="/image/starGold.png" alt="star_gold" />
@@ -32,8 +32,8 @@ const DescriptionDetails = ({ showComments, toggleComments, product }) => {
           <img className='w-8' src="/image/starGold.png" alt="star_gold" />
         </p>
         <p onClick={scrollToComments} className='text-sm underline cursor-pointer'>Read reviews</p>
-        <div className='flex justify-center md:justify-end md:pr-20'>
-        <img className='w-1/3' src="/image/travel.png" alt="travel" />
+        <div className='flex justify-center md:justify-end md:p-0'>
+        <img className='w-1/3 mr-50 hidden md:block mb-10' src="../../public/image/detalleDeDetalle.jpg" alt="travel" />
         </div>
       </div>
     </section>

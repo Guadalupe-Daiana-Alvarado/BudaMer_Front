@@ -98,7 +98,7 @@ const Admin = () => {
       await axios.post('http://localhost:8000/products', productData);
       console.log('Successfully created product.');
       getProducts();
-      Swal.fire('Success', 'The product was created successfully', 'success');
+      Swal.fire('Éxito', 'El producto fue creado .', 'success');
       setCategory('');
       setName('');
       setDescription('');
@@ -107,7 +107,7 @@ const Admin = () => {
       setPhoto('');
     } catch (error) {
       console.log('Error:', error);
-      Swal.fire('Error', 'Product could not be created', 'error');
+      Swal.fire('Error', 'No se pudo crear el producto.', 'error');
     }
   };
 
@@ -127,7 +127,7 @@ const Admin = () => {
       await axios.put(`http://localhost:8000/products/${editingProductId}`, productData);
       console.log('Product updated successfully.');
       getProducts();
-      Swal.fire('Success', 'The product was successfully updated', 'success');
+      Swal.fire('Éxito', 'El producto se actualizo correctamente.', 'success');
       setEditingProductId(null);
       setCategory('');
       setName('');
@@ -137,26 +137,26 @@ const Admin = () => {
       setPhoto('');
     } catch (error) {
       console.log('Error:', error);
-      Swal.fire('Error', 'Product could not be updated', 'error');
+      Swal.fire('Error', 'No se pudo actualizar el producto.', 'error');
     }
   };
 
   const handleDelete = async (productId) => {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'This action cannot be undone',
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete',
-      cancelButtonText: 'Cancel',
+      confirmButtonText: 'Si, elimanar.',
+      cancelButtonText: 'Cancelar',
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
           await axios.delete(`http://localhost:8000/products/${productId}`);
           console.log('Product successfully removed');
-          Swal.fire('Success', 'The product was successfully removed', 'success');
+          Swal.fire('Éxito', 'El producto fue eliminado correctamente.', 'success');
           getProducts();
         } catch (error) {
           console.log('Error:', error);
@@ -179,24 +179,24 @@ const Admin = () => {
 
   return (
     <>
-      <div className='flex gap-1 text-base pl-6 py-2 items-center bg-sky-100'>
+      <div className='flex gap-1 text-base pl-6 py-2 items-center bg-yellow-100 bg-opacity-50'>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-house-door-fill" viewBox="0 0 16 16">
           <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
         </svg>
-        <Link to="/">Home</Link>
+        <Link to="/">Inicio</Link>
         <Link className='font-semibold' to="#">/Admin</Link>
       </div>
 
-      <div className="bg-sky-100 mx-auto py-4 px-6 flex flex-col items-center gap-4 md:py-5">
+      <div className="bg-yellow-100 bg-opacity-50 mx-auto py-4 px-6 flex flex-col items-center gap-4 md:py-5">
         {/*Formulario de Creación*/}
 
-        <div className="shadow-gray-950 shadow-md bg-sky-50 rounded-sm flex flex-row items-center justify-center md:w-2/4">
+        <div className="shadow-gray-950 shadow-md bg-yellow-200 bg-opacity-50 rounded-sm flex flex-row items-center justify-center md:w-2/4">
           <form className="mt-4 px-2 md:px-4" onSubmit={handleCreate}>
-            <p className="text-xl font-bold text-center pb-1">Add products</p>
+            <p className="text-xl font-bold text-center pb-1">Crear un nuvevo producto:</p>
 
             <div className="py-1">
               <label htmlFor="category" className="text-sm text-gray-600">
-                Categories
+                Categorias
               </label>
               <select
                 id="category"
@@ -204,7 +204,7 @@ const Admin = () => {
                 onChange={(e) => setCategory(e.target.value)}
                 className="w-full p-2 border rounded-md"
               >
-                <option value="">Select category</option>
+                <option value="">Selecciona una categoria</option>
                 {categories.map((category) => (
                   <option key={category._id} value={category._id}>
                     {category.name}
@@ -215,7 +215,7 @@ const Admin = () => {
 
             <div className="py-1">
               <label htmlFor="name" className="text-sm text-gray-600">
-                Product name
+                Nombre:
               </label>
               <input
                 type="text"
@@ -228,7 +228,7 @@ const Admin = () => {
 
             <div className="py-1">
               <label htmlFor="description" className="text-sm text-gray-600">
-                Description
+                Descripcion:
               </label>
               <input
                 type="text"
@@ -241,7 +241,7 @@ const Admin = () => {
 
             <div className="py-1">
               <label htmlFor="price" className="text-sm text-gray-600">
-                Price
+                Precio:
               </label>
               <input
                 type="number"
@@ -267,7 +267,7 @@ const Admin = () => {
 
             <div className="py-1">
                 <label htmlFor="image" className="text-sm text-gray-600">
-                Photo
+                Foto: .
                   <input
                     type="file"
                     id="photo"
@@ -286,7 +286,7 @@ const Admin = () => {
                 type="submit"
                 className="w-28 p-1 m-3 font-bold text-white ml-5 bg-sky-800 hover:bg-yellow-600 rounded-full md:p-3"
               >
-                Create
+                Crear
               </button>
             </div>
           </form>
@@ -301,22 +301,22 @@ const Admin = () => {
             id="search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search"
+            placeholder="Nombre del producto"
           />
-          <button className=" btn-search px-3 bg-amber-300 hover.bg-yellow-600 rounded-r-lg text-sky-800  text-base font-semibold p-1">Search</button>
+          <button className=" btn-search px-3 bg-amber-300 hover.bg-yellow-600 rounded-r-lg text-sky-800  text-base font-semibold p-1">Buscar</button>
         </div>
 
 
         {/*TABLA*/}
-        <div className="shadow-gray-950 shadow-md bg-sky-50 rounded-sm w-full py-4 md:py-10 md:w-2/3 md:px-5">
-          <p className="text-xl font-bold text-center px-2 text-black pb-3">Admin Panel Products and Stock</p>
+        <div className="shadow-gray-950 shadow-md bg-yellow-100 bg-opacity-50 rounded-sm w-full py-4 md:py-10 md:w-2/3 md:px-5">
+          <p className="text-xl font-bold text-center px-2 text-black pb-3">Panel administrador de productos y stock:</p>
           <table className="border border-collapse border-gray-700 w-full">
             <thead className="text-center text-xs md:text-base">
               <tr className="border">
-                <th className="border p-1 md:p-2">Product</th>
-                <th className="border p-1 md:p-2">Category</th>
+                <th className="border p-1 md:p-2">Producto</th>
+                <th className="border p-1 md:p-2">Categoria</th>
                 <th className="border p-1 md:p-2">Stock</th>
-                <th className="border p-1 md:p-2">Action</th>
+                <th className="border p-1 md:p-2">Accion</th>
               </tr>
             </thead>
             <tbody>
@@ -342,13 +342,13 @@ const Admin = () => {
                           setPhoto(product.photo);
                         }}
                       >
-                        Edit
+                        Editar
                       </button>
                       <button
                         className="bg-red-400 hover.bg-red-500 rounded-lg p-1"
                         onClick={() => handleDelete(product._id)}
                       >
-                        Delete
+                        Eliminar
                       </button>
                     </td>
                   </tr>
@@ -364,7 +364,7 @@ const Admin = () => {
             disabled={pageNumber === 0}
             className={`page-link rounded-tl-lg rounded-bl-lg w-24 p-2 bg-amber-300 font-semibold text-base my-button`}
           >
-            Previous
+            Anterior
           </button>
           {pageLinks}
           <button
@@ -372,7 +372,7 @@ const Admin = () => {
             disabled={pageNumber === pageCount - 1}
             className={`page-link w-24 rounded-tr-lg rounded-br-lg p-2 bg-amber-300 font-semibold text-base my-button`}
           >
-            Next
+            Siguiente
           </button>
 
 
@@ -384,14 +384,14 @@ const Admin = () => {
           <div className='w-full flex justify-center items-center' >
        
               {editingProductId && (
-                <div className=" shadow-gray-950 shadow-md bg-sky-50 rounded-sm w-full px-2 py-2 md:w-1/2">
+                <div className=" shadow-gray-950 shadow-md bg-yellow-100 bg-opacity-50 rounded-sm w-full px-2 py-2 md:w-1/2">
                   <form className="px-2 md:px-4">
                     <div>
-                      <p className="text-xl text-center font-bold">Edit Product</p>
+                      <p className="text-xl text-center font-bold">Editar producto:</p>
 
                       <div className="py-1">
                         <label htmlFor="category" className="text-sm text-gray-600">
-                          Categories
+                          Categorias
                         </label>
                         <select
                           id="category"
@@ -399,7 +399,7 @@ const Admin = () => {
                           onChange={(e) => setCategory(e.target.value)}
                           className="w-full p-2 border rounded-md"
                         >
-                          <option value="">Select category</option>
+                          <option value="">Selecciona una categoria</option>
                           {categories.map((category) => (
                             <option key={category._id} value={category._id}>
                               {category.name}
@@ -410,7 +410,7 @@ const Admin = () => {
 
                       <div className="py-1">
                         <label htmlFor="name" className="text-sm text-gray-600">
-                          Product name
+                          Nombre:
                         </label>
                         <input
                           type="text"
@@ -423,7 +423,7 @@ const Admin = () => {
 
                       <div className="py-1">
                         <label htmlFor="description" className="text-sm text-gray-600">
-                          Description
+                          Descripcion:
                         </label>
                         <input
                           type="text"
@@ -436,7 +436,7 @@ const Admin = () => {
 
                       <div className="py-1">
                         <label htmlFor="price" className="text-sm text-gray-600">
-                          Price
+                          Precio: 
                         </label>
                         <input
                           type="number"
@@ -449,7 +449,7 @@ const Admin = () => {
 
                       <div className="py-1">
                         <label htmlFor="stock" className="text-sm text-gray-600">
-                          Stock
+                          Stock:
                         </label>
                         <input
                           type="number"
@@ -462,7 +462,7 @@ const Admin = () => {
 
                       <div className="py-1">
                         <label htmlFor="photo" className="text-sm text-gray-600">
-                          Photo
+                          Foto:
                         </label>
                         <input
                           type="file"
@@ -480,13 +480,13 @@ const Admin = () => {
                           className="w-28 p-1 m-3 font-bold text-white ml-5 bg-sky-800 hover:bg-yellow-600 rounded-full md:p-3"
                           onClick={handleEdit}
                         >
-                          Save
+                          Guardar
                         </button>
                         <button
                           className="w-28 p-1 m-3 font-bold text-white ml-5 bg-sky-800 hover:bg-yellow-600 rounded-full md:p-3"
                           onClick={() => setEditingProductId(null)}
                         >
-                          Cancel
+                          Cancelar
                         </button>
                       </div>
                     </div>

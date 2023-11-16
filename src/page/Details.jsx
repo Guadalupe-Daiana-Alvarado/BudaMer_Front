@@ -39,28 +39,27 @@ const Details = () => {
   return (
     <>
 
-      <div class="relative w-full h-36 bg-cover bg-center md:h-48"
-        style={{ backgroundImage: `url('/image/details_banner.png')` }}>
+      <div class="relative w-full h-36 bg-cover bg-center md:h-56"
+        style={{ backgroundImage: `url('../../public/image/BannerDetalles.jpg')` }}>
         <div class="flex flex-col w-full items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-10 md:p-8">
-          <p class="text-xl text-slate-800 md:text-3xl">We give you what you need to</p>
-          <p class="text-xl text-slate-800 md:text-3xl">make</p>
-          <p className="text-base text-yellow-500 font-bold md:text-lg"> the right decision</p>
+          <p class="text-xl text-slate-800 md:text-3xl">Te ofrecemos lo que necesitas,</p>
+          <p class="text-xl text-slate-800 md:text-3xl">para que tomes</p>
+          <p className="text-base text-yellow-500 font-bold md:text-2xl">la desicion correcta.</p>
           <img className='w-6 mt-3 md:w-10' src="/image/arrow_banner.png" alt="arrow_banner" />
         </div>
       </div>
 
-      <div className='flex gap-1 text-base pl-6 py-2 items-center bg-sky-100'>
+      <div className='flex gap-1 text-base pl-6 py-2 items-center  bg-yellow-100 bg-opacity-50 '>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-house-door-fill" viewBox="0 0 16 16">
           <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
         </svg>
-        <Link to="/">Home</Link>
-        <Link to="/store">/Store</Link>
-        <p>/Details</p>
-        <p className='font-semibold'>/Yellow suitcase</p>
+        <Link to="/">Inicio</Link>
+        <Link to="/store">/Tienda</Link>
+        <p className='font-semibold'>/Detalles</p>
       </div>
 
-      <div className='flex flex-col md:flex-row md:items-center bg-sky-100'>
-        <section className='px-6 py-2 md:w-1/4 md:ml-24 md:mr-10'>
+      <div className='flex flex-col md:flex md:items-center bg-yellow-100 bg-opacity-50 '>
+        <section className='px-6 py-2 md:w-1/2 md:ml-24 md:mr-10 '>
           <CarrouselDetails product={product} />
           <PriceDetails product={product} />
         </section>
