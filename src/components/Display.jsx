@@ -10,17 +10,14 @@ const Display = () => {
   const user = localStorage.getItem("user");
   const userObject = JSON.parse(user);
   const role = userObject ? userObject.role : null;
-  //console.log(role)
-
   const userToken = localStorage.getItem("token");
-  //console.log(userToken)
   const headers = { headers: { "authorization": `Bearer ${userToken}` } };
 
   const logout = async () => {
-    axios.post("http://localhost:8000/users/signout")
-      .then(res => {
+    axios.post("http://localhost:8000/users/signout", null, headers)
+    .then(res => {
         localStorage.clear();
-        /*   navigate("/"); */
+           navigate("/"); 
       })
       .catch(res => console.log(res));
   };
@@ -36,27 +33,27 @@ const Display = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-house-door ms-2" viewBox="0 0 16 16">
               <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
             </svg>
-            <ButtonNav to="/" title="Home" />
+            <ButtonNav to="/" title="Inicio" />
           </div>
 
           <div className='flex items-center gap-3 hover:bg-yellow-400 rounded-lg w-36'>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-lock ms-2" viewBox="0 0 16 16">
               <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 5.996V14H3s-1 0-1-1 1-4 6-4c.564 0 1.077.038 1.544.107a4.524 4.524 0 0 0-.803.918A10.46 10.46 0 0 0 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h5ZM9 13a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z" />
             </svg>
-            <ButtonNav to="/login" title="Login" />
+            <ButtonNav to="/login" title="Sesión"/>
           </div>
           <div className='flex items-center gap-3 hover:bg-yellow-400 rounded-lg w-36'>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-plus-circle ms-2" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
             </svg>
-            <ButtonNav to="/register" title="Register" />
+            <ButtonNav to="/register" title="Registro" />
           </div>
           <div className='flex items-center gap-3 hover:bg-yellow-400 rounded-lg w-36'>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-bag-heart ms-2" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
             </svg>
-            <ButtonNav to="/store" title="Store" />
+            <ButtonNav to="/store" title="Tienda" />
           </div>
         </>
       ) : ( // Si el usuario ha iniciado sesión
@@ -66,7 +63,8 @@ const Display = () => {
               <path fillRule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
               <path fillRule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
             </svg>
-            <ButtonNav onClick={logout} title="Logout" />
+            <button className=' text-grey-400 bg-grey-200 p-1 w-full rounded-md font-semibold text-lg' onClick={logout} type="submit"> Salir</button>
+            
           </div>
           {role === 1 &&
             <div className='flex items-center gap-3 hover:bg-yellow-400 rounded-lg w-36'>
@@ -89,13 +87,13 @@ const Display = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-bag-heart ms-2" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
             </svg>
-            <ButtonNav to="/store" title="Store" />
+            <ButtonNav to="/store" title="Tienda" />
           </div>
           <div className='flex items-center gap-3 hover:bg-yellow-400 rounded-lg w-36'>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-house-door ms-2" viewBox="0 0 16 16">
               <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
             </svg>
-            <ButtonNav to="/" title="Home" />
+            <ButtonNav to="/" title="Inicio" />
           </div>
         </>
       )}

@@ -103,7 +103,7 @@ const Products = ({ selectedCategory }) => {
               ) : null}
               <Link
                 to={`/details/${card._id}`}
-                className="bg-sky-800 hover:bg-yellow-600 text-white font-bold h-8 w-20 p-4 rounded-2xl mt-2 flex items-center justify-center"
+                className="bg-sky-800 hover:bg-yellow-600 text-white font-bold h-8 w-20 p-2 rounded-2xl mt-2 flex items-center justify-center"
               >
                 Detalles
               </Link>

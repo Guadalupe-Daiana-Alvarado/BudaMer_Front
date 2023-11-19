@@ -60,7 +60,7 @@ const Nav = () => {
               <img className='h-12 w-12 rounded-xl' src={profile || "/image/botonUsuario.png"} alt="boton_usuario" />
             </Link>
             <Link to={'/cart'} className='flex items-center flex-col-reverse px-2 pb-2 '>
-              <img className='h-12 -m-4 md:ml-3' src="/image/cartNav.png" alt="carro" />
+              <img className='h-12 -m-4 md:ml-3' src="../../public/image/Logotipo_files/shopping-venture-3154148_640.jpg" alt="carro" />
               <div className="relative">
                 <TotalItems />
               </div>
@@ -68,7 +68,7 @@ const Nav = () => {
           </div>
         ) : (
           <Link to="/login" className="seeCarrito">
-            <p className="text-md font-medium p-2 mr-4 text-white bg-sky-800 hover.bg-yellow-600 rounded-full">LOGIN</p>
+            <p className="text-md font-medium p-2 mr-4 text-white bg-sky-800 hover.bg-yellow-600 rounded-full">INICIAR SESIÓN</p>
           </Link>
         )}
       </div>

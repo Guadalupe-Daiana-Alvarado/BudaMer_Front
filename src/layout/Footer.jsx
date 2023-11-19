@@ -12,9 +12,12 @@ function Footer() {
       </div>
 
       <div className=' flex flex-col w-3/4 md:w-full md:flex-row-reverse h-auto justify-around ml-4 pb-2 gap-1 md:gap-0'>
-        <Link className='flex items-center font-medium text-lg w-1/2'><img className='me-1 w-7 md:w-8' src="/image/instagramIcon.png" alt="instagram_icon" />Instagram</Link>
-        <Link className='flex items-center font-medium text-lg w-1/2'><img className='me-1 w-7 md:w-8' src="/image/facebookIcon.png" alt="facebook_icon" />Facebook</Link>
-        <Link className='flex items-center font-medium text-lg w-1/2'><img className='me-1 w-7 md:w-8' src="/image/emailIcon.png" alt="email_icon" /> buda_mer@gmail.com</Link>
+        <Link target='_blank' to={"https://www.instagram.com/buda_mer/"} className='flex items-center font-medium text-lg w-1/2'><img className='me-1 w-7 md:w-8' src="/image/instagramIcon.png" alt="instagram_icon" />Instagram</Link>
+        <Link target='_blank' to={"https://www.facebook.com/profile.php?id=61553677862129"} className='flex items-center font-medium text-lg w-1/2'><img className='me-1 w-7 md:w-8' src="/image/facebookIcon.png" alt="facebook_icon" />Facebook</Link>
+        <a href="mailto:buda.mer23@gmail.com" className='flex items-center font-medium text-lg w-1/2'>
+          <img className='me-1 w-7 md:w-8' src="/image/emailIcon.png" alt="email_icon" />
+          buda.mer23@gmail.com
+        </a>
         <p className='hidden md:block text-center mt-11 font-bold text-xl w-1/2'> Contacto:</p>
       </div>
     </div>

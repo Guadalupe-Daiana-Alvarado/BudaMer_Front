@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Products from '../components/Products/Products.jsx';
 import { DataProvider, DataContext } from '../components/Context/DataContext.jsx';
 import { useNavigate } from "react-router-dom";
-import Filter from './../components/Filter.jsx';
+//import Filter from './../components/Filter.jsx';
 import carro from '../../public/image/logocarro-PhotoRoom.png-PhotoRoom.png';
 
 const SearchPage = () => {
@@ -90,7 +90,7 @@ const SearchPage = () => {
             </div>
             <div className="flex justify-center items-center font-semibold gap-2">
               <button
-                className="bg-sky-800 hover:bg-yellow-600 text-white text-base font-bold h-8 w-20 rounded-2xl mt-2 flex items-center justify-center"
+                className="bg-sky-800 hover:bg-yellow-600 text-white text-base font-bold h-8 w-20 p-2 rounded-2xl mt-2 flex items-center justify-center"
                 onClick={() => buyProduct(card)}
               >
                 Add
@@ -98,7 +98,7 @@ const SearchPage = () => {
 
               <Link
                 to={`/details/${product._id}`}
-                className="bg-sky-800 hover:bg-yellow-600 text-white text-base font-bold h-8 w-20 rounded-2xl mt-2 flex items-center justify-center"
+                className="bg-sky-800 hover:bg-yellow-600 text-white text-base font-bold h-8 w-20 p-2 rounded-2xl mt-2 flex items-center justify-center"
               >
                 Details
               </Link>
